@@ -1,0 +1,42 @@
+
+
+
+.card{
+    color: white;
+    margin: 15px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.card:hover{
+    transform: scale(1.2);
+    z-index: 1000;
+}
+
+.rating{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: white;
+    color: goldenrod;
+    padding: 3px;
+    font-size: 13px;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.title{
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    margin: 2px;
+    text-align: center;
+    overflow: hidden;
+}
+
+@media only screen and (max-width:512px){
+    .title{
+        font-size: 15px;
+    }
+}
