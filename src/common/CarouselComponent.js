@@ -29,7 +29,13 @@ export const ImageCarousel = (props) => {
     return (
       <Carousel controls={false} indicators={false}>
         <Carousel.Item style={{border:"2px solid white"}}>
-          <img className="d-block w-100" src={props.items[0].file_path?(loading?LoadingLandscape:`https://image.tmdb.org/t/p/original${props.items[0].file_path}`):noImageFound} alt="No Images Available"/>
+          <img 
+            className="d-block w-100" 
+            src={props.items[0].file_path?(loading?LoadingLandscape:`https://image.tmdb.org/t/p/original${props.items[0].file_path}`):noImageFound} 
+            alt="No Images Available"
+
+            onLoad={()=>{setLoading(false)}}
+          />
         </Carousel.Item>
       </Carousel>
     );

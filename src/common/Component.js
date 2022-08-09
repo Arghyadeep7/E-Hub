@@ -11,6 +11,7 @@ const TvSeriesComponent = (props) => {
   const [count,setCount]=useState(1);
   const [isLoading, setLoading]=useState(true);
   const [total_pages, setTotalPages]=useState();
+  const [total_results, setTotalResults]=useState();
 
   var type;
   if(props.type==="movies"){
@@ -33,12 +34,14 @@ const TvSeriesComponent = (props) => {
 
       setLoading(true);
 
-      const tvSeriesData=await axios.get(`https://api.themoviedb.org/3/${filter}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${count}`)
+      const data=await axios.get(`https://api.themoviedb.org/3/${filter}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${count}`)
         .then(res => res.data);
 
-      setItems(tvSeriesData.results);
+      setItems(data.results);
 
-      setTotalPages(tvSeriesData.total_pages);
+      setTotalPages(data.total_pages);
+
+      setTotalResults(data.total_results)
 
       setLoading(false);
       
@@ -62,7 +65,10 @@ const TvSeriesComponent = (props) => {
         :
         <>
           <h3><Badge pill bg="primary" style={{textTransform: "uppercase"}}>{props.filter}</Badge></h3>
-          <h4><Badge pill bg="dark" style={{textTransform: "uppercase"}}>PAGE {count} / {total_pages}</Badge></h4>
+          <div style={{display: 'flex', justifyContent: 'space-between'}}>
+            <h4><Badge pill bg="dark" style={{textTransform: "uppercase"}}>PAGE {count} / {total_pages}</Badge></h4>
+            <h4><Badge pill bg="dark" style={{textTransform: "uppercase"}}>TOTAL RESULTS: {total_results}</Badge></h4>
+          </div>
           <List items={items} type={props.type}/>
           <div style={{display:"flex", justifyContent:"center"}}>
             {count>1 && <Button onClick={previousPageHandler} variant="outline-warning" style={{margin:"20px"}} size="lg"><i className="fas fa-angle-double-left" />&nbsp;Previous</Button>}

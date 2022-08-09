@@ -24,12 +24,12 @@ const SearchQuery = () => {
     const { query } =useParams();
 
     const nextPageMoviesHandler=()=>{
-        window.scroll(0,0);
+        document.getElementById("movies").scrollIntoView();
         setCountMovies(countMovies+1);
     }
     
     const previousPageMoviesHandler=()=>{
-        window.scroll(0,0);
+        document.getElementById("movies").scrollIntoView();
         setCountMovies(countMovies-1);
     };
 
@@ -51,12 +51,12 @@ const SearchQuery = () => {
     };
 
     const nextPageTvSeriesHandler=()=>{
-        window.scroll(0,0);
+        document.getElementById("web_series").scrollIntoView();
         setCountTvSeries(countTvSeries+1);
     }
     
     const previousPageTvSeriesHandler=()=>{
-        window.scroll(0,0);
+        document.getElementById("web_series").scrollIntoView();
         setCountTvSeries(countTvSeries-1);
     };
 
@@ -105,7 +105,7 @@ const SearchQuery = () => {
         <>
             <Header />
 
-            <Row>
+            <Row id="movies">
                 <h2><Badge bg="dark">{loadingMovies?"Searching":"Movie Search"} results for "{query}"</Badge></h2>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                     <h3><Badge pill bg="dark" style={{textTransform: "uppercase"}}>PAGE {countMovies} / {total_pagesMovies}</Badge></h3>
@@ -114,13 +114,13 @@ const SearchQuery = () => {
                 <List items={movies} type="movies"/>
                 <div style={{display:"flex",justifyContent: "center"}}>
                     {countMovies>1 && <Button onClick={previousPageMoviesHandler} variant="outline-warning" style={{margin:"20px"}} size="lg"><i className="fas fa-angle-double-left" />&nbsp;Previous</Button>}
-                    {countMovies===1 && <Button onClick={previousPageMoviesHandler} variant="outline-warning" style={{margin:"20px"}} size="lg" disabled><i className="fas fa-times-circle"/>&nbsp;Previous</Button>}
+                    {countMovies===1 && <Button variant="outline-warning" style={{margin:"20px"}} size="lg" disabled><i className="fas fa-times-circle"/>&nbsp;Previous</Button>}
                     {countMovies!==total_pagesMovies && <Button onClick={nextPageMoviesHandler} variant="outline-primary" style={{margin:"20px"}}  size="lg">Next&nbsp;<i className="fas fa-angle-double-right" /></Button>}
-                    {countMovies===total_pagesMovies && <Button onClick={nextPageMoviesHandler} variant="outline-primary" style={{margin:"20px"}}  size="lg" disabled>Next&nbsp;<i className="fas fa-times-circle"/></Button>}
+                    {countMovies===total_pagesMovies && <Button variant="outline-primary" style={{margin:"20px"}}  size="lg" disabled>Next&nbsp;<i className="fas fa-times-circle"/></Button>}
                 </div>
             </Row>
 
-            <Row>
+            <Row id="web_series">
                 <h2><Badge bg="dark">{loadingTvSeries?"Searching":"Series Search"} results for "{query}"</Badge></h2>
                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                     <h3><Badge pill bg="dark" style={{textTransform: "uppercase"}}>PAGE {countTvSeries} / {total_pagesTvSeries}</Badge></h3>
@@ -129,9 +129,9 @@ const SearchQuery = () => {
                 <List items={tvSeries} type="web_series"/>
                 <div style={{display:"flex",justifyContent: "center"}}>
                     {countTvSeries>1 && <Button onClick={previousPageTvSeriesHandler} variant="outline-warning" style={{margin:"20px"}} size="lg"><i className="fas fa-angle-double-left" />&nbsp;Previous</Button>}
-                    {countTvSeries===1 && <Button onClick={previousPageTvSeriesHandler} variant="outline-warning" style={{margin:"20px"}} size="lg" disabled><i className="fas fa-times-circle"/>&nbsp;Previous</Button>}
+                    {countTvSeries===1 && <Button variant="outline-warning" style={{margin:"20px"}} size="lg" disabled><i className="fas fa-times-circle"/>&nbsp;Previous</Button>}
                     {countTvSeries!==total_pagesTvSeries && <Button onClick={nextPageTvSeriesHandler} variant="outline-primary" style={{margin:"20px"}}  size="lg">Next&nbsp;<i className="fas fa-angle-double-right" /></Button>}
-                    {countTvSeries===total_pagesTvSeries && <Button onClick={nextPageTvSeriesHandler} variant="outline-primary" style={{margin:"20px"}}  size="lg" disabled>Next&nbsp;<i className="fas fa-times-circle"/></Button>}
+                    {countTvSeries===total_pagesTvSeries && <Button variant="outline-primary" style={{margin:"20px"}}  size="lg" disabled>Next&nbsp;<i className="fas fa-times-circle"/></Button>}
                 </div>
             </Row>
         </>

@@ -63,32 +63,32 @@ const Header = (props) => {
                     <NavDropdown title={props.filter || "FILTER BY"} id="collasible-nav-dropdown">
                       {props.type==="web_series" && tvFilters.map((filter)=>(
                           <>
-                          {filter!==props.filter && 
-                              <NavDropdown.Item className={styles.navLink} href={`/web_series/${filter}`}>
-                                  {filter}
-                              </NavDropdown.Item>
-                          }
-                          {filter===props.filter && 
-                              <NavDropdown.Item className={styles.navLink} href="" active>
-                                  {filter}
-                              </NavDropdown.Item>
-                          }
+                            {filter!==props.filter && 
+                                <NavDropdown.Item className={styles.navLink} href={`/web_series/${filter}`}>
+                                    {filter}
+                                </NavDropdown.Item>
+                            }
+                            {filter===props.filter && 
+                                <NavDropdown.Item className={styles.navLink} href="" active>
+                                    {filter}
+                                </NavDropdown.Item>
+                            }
                           </>
                           ))
                       }
 
                       {props.type==="movies" && movieFilters.map((filter)=>(
                           <>
-                          {filter!==props.filter && 
-                              <NavDropdown.Item className={styles.navLink} href={`/movies/${filter}`}>
-                                  {filter}
-                              </NavDropdown.Item>
-                          }
-                          {filter===props.filter && 
-                              <NavDropdown.Item className={styles.navLink} href="" active>
-                                  {filter}
-                              </NavDropdown.Item>
-                          }
+                            {filter!==props.filter && 
+                                <NavDropdown.Item className={styles.navLink} href={`/movies/${filter}`}>
+                                    {filter}
+                                </NavDropdown.Item>
+                            }
+                            {filter===props.filter && 
+                                <NavDropdown.Item className={styles.navLink} href="" active>
+                                    {filter}
+                                </NavDropdown.Item>
+                            }
                           </>
                           ))
                       }

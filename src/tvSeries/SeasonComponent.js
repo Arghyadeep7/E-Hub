@@ -152,7 +152,7 @@ const SeasonComponent = () => {
                             <h2><b className={styles.title}>{tvSeriesData.name}&nbsp;|&nbsp;Season&nbsp;{season_num}</b></h2>
 
                             {tvSeriesData.genres.length!==0 && 
-                                <div>
+                                <>
                                     {    
                                         tvSeriesData.genres.map( (genre) =>(
                                         <span key={genre.name}>
@@ -160,7 +160,7 @@ const SeasonComponent = () => {
                                         </span>
                                         ))
                                     }
-                                </div>
+                                </>
                             }  
 
                             {tvSeriesData.genres.length===0 && <Badge pill bg="info">No genre Available</Badge>}          

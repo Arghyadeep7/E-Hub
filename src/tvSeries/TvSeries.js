@@ -40,22 +40,22 @@ const TvSeries = (props) => {
     <>
         {props.type!=="home" && <Header type="web_series"/>}
 
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <Badge bg="primary"><h6>TRENDING</h6></Badge>
+        <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
+          <Badge bg="primary">TRENDING</Badge>
           <Button variant="outline-primary" href="/web_series/trending">LOAD MORE</Button>
-        </div>
+        </h3>
         <CardCarousel type="web_series" items={items1} />
 
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <Badge bg="primary"><h6>POPULAR</h6></Badge>
+        <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
+          <Badge bg="primary">POPULAR</Badge>
           <Button variant="outline-primary" href="/web_series/popular">LOAD MORE</Button>
-        </div>
+        </h3>
         <CardCarousel type="web_series" items={items2} />
 
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <Badge bg="primary"><h6>TOP-RATED</h6></Badge>
+        <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
+          <Badge bg="primary">TOP-RATED</Badge>
           <Button variant="outline-primary" href="/web_series/top_rated">LOAD MORE</Button>
-        </div>
+        </h3>
         <CardCarousel type="web_series" items={items3} />
     </>
   )

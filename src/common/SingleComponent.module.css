@@ -5,7 +5,6 @@
     color: white;
     margin: 15px auto;
     position: relative;
-    overflow: hidden;
     border-radius: 5px;
 }
 
@@ -29,6 +28,8 @@
 .title{
     position: absolute;
     bottom: 0;
+    right:0;
+    left:0;
     z-index: 2;
     margin: 2px;
     text-align: center;

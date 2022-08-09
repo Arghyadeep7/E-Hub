@@ -21,7 +21,7 @@ const SingleComponent = (props) => {
                 onLoad={()=>{setLoading(false)}}
             />
             <div className={styles.rating}>
-                <span><b><i className="fa-solid fa-star"/>&nbsp;{props.item.vote_average}</b></span>
+                <b><i className="fa-solid fa-star"/>&nbsp;{props.item.vote_average}</b>
             </div>
             <h5 className={styles.title}><b>{props.item.title?props.item.title:props.item.name}</b></h5>
         </div>

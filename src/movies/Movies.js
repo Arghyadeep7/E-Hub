@@ -50,34 +50,34 @@ const Movies = (props) => {
     <>
         {props.type!=="home" && <Header type="movies"/>}
 
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <Badge bg="primary"><h6>NOW PLAYING</h6></Badge>
+        <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
+          <Badge bg="primary">NOW PLAYING</Badge>
           <Button variant="outline-primary" href="/movies/now_playing">LOAD MORE</Button>
-        </div>        
+        </h3>        
         <CardCarousel type="movies" items={items1} />
 
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <Badge bg="primary"><h6>UPCOMING</h6></Badge>
+        <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
+          <Badge bg="primary">UPCOMING</Badge>
           <Button variant="outline-primary" href="/movies/upcoming">LOAD MORE</Button>
-        </div>
+        </h3>
         <CardCarousel type="movies" items={items2} />
 
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <Badge bg="primary"><h6>TRENDING</h6></Badge>
+        <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
+          <Badge bg="primary">TRENDING</Badge>
           <Button variant="outline-primary" href="/movies/trending">LOAD MORE</Button>
-        </div>
+        </h3>
         <CardCarousel type="movies" items={items3} />
 
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <Badge bg="primary"><h6>POPULAR</h6></Badge>
+        <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
+          <Badge bg="primary">POPULAR</Badge>
           <Button variant="outline-primary" href="/movies/popular">LOAD MORE</Button>
-        </div>
+        </h3>
         <CardCarousel type="movies" items={items4} />
 
-        <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <Badge bg="primary"><h6>TOP-RATED</h6></Badge>
+        <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
+          <Badge bg="primary">TOP-RATED</Badge>
           <Button variant="outline-primary" href="/movies/top_rated">LOAD MORE</Button>
-        </div>
+        </h3>
         <CardCarousel type="movies" items={items5} />
     </>
   )
