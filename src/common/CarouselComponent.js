@@ -93,10 +93,10 @@ export const CardCarousel = (props) => {
         touchTracking={true}
         items={items}
         renderPrevButton={() => {
-            return <i class="fas fa-chevron-circle-left fa-3x" style={{cursor: 'pointer'}}></i>
+            return <i className="fas fa-chevron-circle-left fa-3x" style={{cursor: 'pointer'}}></i>
         }}
         renderNextButton={() => {
-            return <i class="fas fa-chevron-circle-right fa-3x" style={{cursor: 'pointer'}}></i>
+            return <i className="fas fa-chevron-circle-right fa-3x" style={{cursor: 'pointer'}}></i>
         }}
     />
   );
