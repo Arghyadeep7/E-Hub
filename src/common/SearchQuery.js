@@ -12,6 +12,8 @@ import List from '../common/List';
 
 const SearchQuery = () => {
 
+    const [selected,setSelected]=useState(true);
+
     const [movies, setMovies]= useState([]);
     const [countMovies, setCountMovies]= useState(1);
     const [loadingMovies, setLoadingMovies]=useState(false);
@@ -25,6 +27,10 @@ const SearchQuery = () => {
     const [total_resultsTvSeries, setTotalResultsTvSeries]= useState(0);
 
     const { query } =useParams();
+
+    const clickhandler=()=>{
+        setSelected(!selected);
+    }
 
     const nextPageMoviesHandler=()=>{
         window.scrollTo(0,0);
@@ -114,14 +120,28 @@ const SearchQuery = () => {
                     <ListGroup>
                         <Row style={{marginBottom:"20px", textAlign:"center"}}>
                             <Col>
-                                <ListGroup.Item action href="#movies">
-                                    <h4>MOVIES</h4>
-                                </ListGroup.Item>
+                                {selected && 
+                                    <ListGroup.Item action disabled href="#movies">
+                                        <h4>MOVIES</h4>
+                                    </ListGroup.Item>
+                                }
+                                {!selected && 
+                                    <ListGroup.Item action href="#movies" onClick={clickhandler}>
+                                        <h4>MOVIES</h4>
+                                    </ListGroup.Item>
+                                }
                             </Col>
                             <Col>
-                                <ListGroup.Item action href="#web_series">
-                                    <h4>WEB SERIES</h4>
-                                </ListGroup.Item>
+                                {selected &&
+                                    <ListGroup.Item action href="#web_series" onClick={clickhandler}>
+                                        <h4>WEB SERIES</h4>
+                                    </ListGroup.Item>
+                                }
+                                {!selected &&
+                                    <ListGroup.Item action disabled href="#web_series" onClick={clickhandler}>
+                                        <h4>WEB SERIES</h4>
+                                    </ListGroup.Item>
+                                }
                             </Col>
                         </Row>
                     </ListGroup>
