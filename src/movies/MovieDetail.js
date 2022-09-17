@@ -166,7 +166,7 @@ const MovieDetail = () => {
                                 }
                                 {movie.spoken_languages.length===0 && <Badge>No language Available</Badge>}                        
 
-                                {movie.release_date && <h5 className={styles.font_manager}>Released On : {movie.release_date}</h5>}
+                                {movie.release_date && <h5 className={styles.font_manager}>Release Date : {movie.release_date}</h5>}
                                 {!movie.release_date && <h5 className={styles.font_manager}>Release date not available!</h5>}
                             </Col>
                             <Col md={8}>
