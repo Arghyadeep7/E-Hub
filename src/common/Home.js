@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <>
-        <Header />
+        <Header home="TRUE"/>
         <Badge bg="secondary" style={{margin:"10px auto", width:"100%", textAlign: "center"}}><h3>MOVIES</h3></Badge>
         <Movies type="home"/>
 

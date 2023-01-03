@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import axios from "axios";
 import {useEffect, useState} from 'react';
 
@@ -52,31 +54,51 @@ const Movies = (props) => {
 
         <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
           <Badge bg="primary">NOW PLAYING</Badge>
-          <Button variant="outline-primary" href="/movies/now_playing">LOAD MORE</Button>
+          <Link to="/movies/now_playing" style={{textDecoration:"none"}}>
+            <Button variant="outline-primary">
+              LOAD MORE
+            </Button>
+          </Link>
         </h3>        
         <CardCarousel type="movies" items={items1} />
 
         <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
           <Badge bg="primary">UPCOMING</Badge>
-          <Button variant="outline-primary" href="/movies/upcoming">LOAD MORE</Button>
+          <Link to="/movies/upcoming" style={{textDecoration:"none"}}>
+            <Button variant="outline-primary">
+              LOAD MORE
+            </Button>
+          </Link>
         </h3>
         <CardCarousel type="movies" items={items2} />
 
         <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
           <Badge bg="primary">TRENDING</Badge>
-          <Button variant="outline-primary" href="/movies/trending">LOAD MORE</Button>
+          <Link to="/movies/trending" style={{textDecoration:"none"}}>
+            <Button variant="outline-primary">
+              LOAD MORE
+            </Button>
+          </Link>
         </h3>
         <CardCarousel type="movies" items={items3} />
 
         <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
           <Badge bg="primary">POPULAR</Badge>
-          <Button variant="outline-primary" href="/movies/popular">LOAD MORE</Button>
+          <Link to="/movies/popular" style={{textDecoration:"none"}}>
+            <Button variant="outline-primary">
+              LOAD MORE
+            </Button>
+          </Link>
         </h3>
         <CardCarousel type="movies" items={items4} />
 
         <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
           <Badge bg="primary">TOP-RATED</Badge>
-          <Button variant="outline-primary" href="/movies/top_rated">LOAD MORE</Button>
+          <Link to="/movies/top_rated" style={{textDecoration:"none"}}>
+            <Button variant="outline-primary">
+              LOAD MORE
+            </Button>
+          </Link>
         </h3>
         <CardCarousel type="movies" items={items5} />
     </>

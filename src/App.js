@@ -42,7 +42,7 @@ function App() {
         <Route path="/search/:query" element={<SearchQuery />} />
         <Route path="*" element={
           <>
-            <Header type=""/>
+            <Header home="TRUE"/>
             <h1>Error, this page does not exist !</h1>
           </>
         } />

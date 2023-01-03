@@ -1,3 +1,6 @@
+import { useDispatch } from 'react-redux';
+import {searchActions} from '../store/Search';
+
 import {useState, useEffect} from 'react';
 import {useParams} from "react-router-dom";
 import Row from 'react-bootstrap/Row';
@@ -87,6 +90,9 @@ const SearchQuery = () => {
 
     };
 
+    const dispatch = useDispatch();
+    dispatch(searchActions.setSearch(query));
+
     useEffect(() => {
 
         setCountMovies(1);
@@ -112,11 +118,10 @@ const SearchQuery = () => {
 
     return (
         <>
-            <Header />
+            <Header home="TRUE"/>
 
             <Tab.Container id="list-group-tabs-example" defaultActiveKey="#movies">
                 
-                    
                     <ListGroup>
                         <Row style={{marginBottom:"20px", textAlign:"center"}}>
                             <Col>
@@ -139,7 +144,7 @@ const SearchQuery = () => {
                                 }
                                 {!selected &&
                                     <ListGroup.Item action disabled href="#web_series" onClick={clickhandler}>
-                                        <h4>WEB SERIES</h4>
+                                        <h4>TV/WEB SERIES</h4>
                                     </ListGroup.Item>
                                 }
                             </Col>
@@ -151,7 +156,8 @@ const SearchQuery = () => {
                         
                             <h2><Badge bg="dark">{loadingMovies?"Searching":"Movie"} results for "{query}"</Badge></h2>
                             <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                                <h3><Badge pill bg="dark" style={{textTransform: "uppercase"}}>PAGE {countMovies} / {total_pagesMovies}</Badge></h3>
+                                
+                                <h3><Badge pill bg="dark" style={{textTransform: "uppercase"}}>PAGE {total_resultsMovies===0?0:countMovies} / {total_pagesMovies}</Badge></h3>
                                 <h3><Badge pill bg="dark" style={{textTransform: "uppercase"}}>TOTAL RESULTS: {total_resultsMovies}</Badge></h3>
                             </div>
                             <List items={movies} type="movies"/>
@@ -167,10 +173,10 @@ const SearchQuery = () => {
                         
                             <h2><Badge bg="dark">{loadingTvSeries?"Searching":"Series"} results for "{query}"</Badge></h2>
                             <div style={{display: 'flex', justifyContent: 'space-between'}}>
-                                <h3><Badge pill bg="dark" style={{textTransform: "uppercase"}}>PAGE {countTvSeries} / {total_pagesTvSeries}</Badge></h3>
+                                <h3><Badge pill bg="dark" style={{textTransform: "uppercase"}}>PAGE {total_resultsTvSeries===0?0:countTvSeries} / {total_pagesTvSeries}</Badge></h3>
                                 <h3><Badge pill bg="dark" style={{textTransform: "uppercase"}}>TOTAL RESULTS: {total_resultsTvSeries}</Badge></h3>
                             </div>
-                            <List items={tvSeries} type="web_series"/>
+                            <List items={tvSeries} type="web series"/>
                             <div style={{display:"flex",justifyContent: "center"}}>
                                 {countTvSeries>1 && <Button onClick={previousPageTvSeriesHandler} variant="outline-warning" style={{margin:"20px"}} size="lg"><i className="fas fa-angle-double-left" />&nbsp;Previous</Button>}
                                 {countTvSeries===1 && <Button variant="outline-warning" style={{margin:"20px"}} size="lg" disabled><i className="fas fa-times-circle"/>&nbsp;Previous</Button>}

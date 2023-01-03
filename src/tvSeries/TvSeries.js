@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 import axios from "axios";
 import {useEffect, useState} from 'react';
 
@@ -42,19 +44,31 @@ const TvSeries = (props) => {
 
         <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
           <Badge bg="primary">TRENDING</Badge>
-          <Button variant="outline-primary" href="/web_series/trending">LOAD MORE</Button>
+          <Link to="/web_series/trending" style={{textDecoration:"none"}}>
+            <Button variant="outline-primary">
+              LOAD MORE
+            </Button>
+          </Link>
         </h3>
         <CardCarousel type="web_series" items={items1} />
 
         <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
           <Badge bg="primary">POPULAR</Badge>
-          <Button variant="outline-primary" href="/web_series/popular">LOAD MORE</Button>
+          <Link to="/web_series/popular" style={{textDecoration:"none"}}>
+            <Button variant="outline-primary">
+              LOAD MORE
+            </Button>
+          </Link>
         </h3>
         <CardCarousel type="web_series" items={items2} />
 
         <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
           <Badge bg="primary">TOP-RATED</Badge>
-          <Button variant="outline-primary" href="/web_series/top_rated">LOAD MORE</Button>
+          <Link to="/web_series/top_rated" style={{textDecoration:"none"}}>
+            <Button variant="outline-primary">
+              LOAD MORE
+            </Button>
+          </Link>
         </h3>
         <CardCarousel type="web_series" items={items3} />
     </>
