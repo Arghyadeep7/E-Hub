@@ -50,8 +50,8 @@ const Movies = (props) => {
 
   return (
     <>
-        {props.type!=="home" && <Header type="movies"/>}
-
+        <Header />
+        <Badge bg="secondary" style={{margin:"10px auto", width:"100%", textAlign: "center"}}><h3>MOVIES</h3></Badge>
         <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
           <Badge bg="primary">NOW PLAYING</Badge>
           <Link to="/movies/now_playing" style={{textDecoration:"none"}}>

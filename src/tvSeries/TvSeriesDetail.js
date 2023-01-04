@@ -94,7 +94,7 @@ const TvSeriesDetail = () => {
 
     return (
         <>
-            <Header type="web_series" filter=""/>
+            <Header />
             <Row style={{marginTop:"10px"}}>
             {
                 loading?

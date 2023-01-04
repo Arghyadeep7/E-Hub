@@ -10,7 +10,7 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Tab from 'react-bootstrap/Tab';
 
-import Header from "./Header";
+import Header from '../common/Header';
 import List from '../common/List';
 
 const SearchQuery = () => {
@@ -30,6 +30,9 @@ const SearchQuery = () => {
     const [total_resultsTvSeries, setTotalResultsTvSeries]= useState(0);
 
     const { query } =useParams();
+
+    const dispatch = useDispatch();
+    dispatch(searchActions.setSearch(query));
 
     const clickhandler=()=>{
         setSelected(!selected);
@@ -90,9 +93,6 @@ const SearchQuery = () => {
 
     };
 
-    const dispatch = useDispatch();
-    dispatch(searchActions.setSearch(query));
-
     useEffect(() => {
 
         setCountMovies(1);
@@ -118,7 +118,7 @@ const SearchQuery = () => {
 
     return (
         <>
-            <Header home="TRUE"/>
+            <Header />
 
             <Tab.Container id="list-group-tabs-example" defaultActiveKey="#movies">
                 

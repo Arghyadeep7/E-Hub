@@ -94,7 +94,7 @@ const MovieDetail = () => {
 
     return (
         <>
-            <Header type="movies" filter=""/>
+            <Header />
             <Row style={{marginTop:"10px"}}>
                 {
                     loading?

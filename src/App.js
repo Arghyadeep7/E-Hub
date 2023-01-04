@@ -1,7 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./common/Home";
-import Header from "./common/Header";
 import Footer from "./common/Footer";
 import Component from "./common/Component";
 
@@ -20,8 +18,15 @@ function App() {
 
   return (
     <Container>
+      
       <Routes>
-        <Route path="/" element={<Home />} />
+        
+        <Route path="/" element={
+          <>
+            <Movies />
+            <TvSeries />
+          </>
+        } />
 
         <Route path="/web_series" element={<TvSeries />} />
         <Route path="/web_series/popular" element={<Component type="web_series" filter="popular"/>} />
@@ -40,12 +45,7 @@ function App() {
         <Route path="/movies/:id" element={<MovieDetail />} />
         
         <Route path="/search/:query" element={<SearchQuery />} />
-        <Route path="*" element={
-          <>
-            <Header home="TRUE"/>
-            <h1>Error, this page does not exist !</h1>
-          </>
-        } />
+        <Route path="*" element={<h1>Error, this page does not exist !</h1>} />
       </Routes>
       <Footer />
     </Container>

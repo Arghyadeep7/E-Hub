@@ -40,8 +40,8 @@ const TvSeries = (props) => {
 
   return (
     <>
-        {props.type!=="home" && <Header type="web_series"/>}
-
+        <Header />
+        <Badge bg="secondary" style={{margin:"10px auto", width:"100%", textAlign: "center"}}><h3>TV/WEB SERIES</h3></Badge>
         <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
           <Badge bg="primary">TRENDING</Badge>
           <Link to="/web_series/trending" style={{textDecoration:"none"}}>

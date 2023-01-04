@@ -58,7 +58,8 @@ const TvSeriesComponent = (props) => {
 
   return (
     <>
-      <Header type={props.type} filter={props.filter}/>
+      <Header />
+      <Badge bg="secondary" style={{margin:"10px auto", width:"100%", textAlign: "center"}}><h3>{props.type==="movies"?"MOVIES":"TV/WEB SERIES"}</h3></Badge>
       {
         isLoading?
           <h3><i className="fas fa-hourglass-half" />&nbsp;Loading...</h3>

@@ -75,7 +75,7 @@ const SeasonComponent = () => {
             }
 
             const videoData=seasonData.videos.results.filter((video)=>{
-                return video.key!=trailer;
+                return video.key!==trailer;
             });
 
             setVideos(videoData);
@@ -101,7 +101,7 @@ const SeasonComponent = () => {
 
     return (
         <>
-            <Header type="web_series" filter=""/>
+            <Header />
             {
                 loading?
                 <h3><i className="fas fa-hourglass-half" />&nbsp;Loading...</h3>
@@ -135,7 +135,7 @@ const SeasonComponent = () => {
                                     >
                                         {tvSeriesData.seasons.map((season)=>(
                                             <>
-                                                {season.season_number!=season_num &&
+                                                {season.season_number!==season_num &&
                                                     <Dropdown.Item href={`/web_series/${id}/season/${season.season_number}`} style={{textAlign: "center"}} key={season.season_number}>Season {season.season_number}</Dropdown.Item>                                            
                                                 }
                                             </>

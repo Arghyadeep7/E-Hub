@@ -68,7 +68,7 @@ const SeasonComponent = () => {
 
     return (
         <>
-            <Header type="web_series" filter=""/>
+            <Header />
             {
                 loading?
                 <h3><i className="fas fa-hourglass-half" />&nbsp;Loading...</h3>

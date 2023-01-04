@@ -11,7 +11,7 @@ import {searchActions} from '../store/Search';
 
 import styles from "../common/Header.module.css";
 
-const Header = (props) => {
+const Header = () => {
 
   const navigate=useNavigate();
 
@@ -30,103 +30,74 @@ const Header = (props) => {
   };
 
   const [searchQ, setSearchQ]=useState(search);
-  
-
-  const types=["movies", "web_series"];
-
-  const movieFilters=["now_playing", "upcoming", "trending", "popular", "top_rated"];
-
-  const tvFilters=["trending", "popular", "top_rated"];
 
   return (
     <>
-      <Navbar collapseOnSelect expand="sm" variant="dark" sticky="top" style={{backgroundColor: "black", textTransform: "uppercase"}}>
+      <Navbar collapseOnSelect expand="md" variant="dark" sticky="top" style={{backgroundColor: "black", textTransform: "uppercase"}}>
         <Navbar.Brand><Link to="/" className={styles.navBrand}>E-HUB</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav" style={{color:"white"}}>
           <Nav className="me-auto">
             <div style={{display:'flex', justifyContent: 'space-between'}}>
-              {
-                props.home==="TRUE" &&
-                <>
-                  <Nav.Item >
-                    <Nav.Link>
-                      <Link to="/movies" style={{textDecoration:"none", color:"white"}}><b>MOVIES</b></Link>
-                    </Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item >
-                    <Nav.Link>
-                      <Link to="/web_series" style={{textDecoration:"none", color:"white"}}><b>TV/WEB SERIES</b></Link>
-                    </Nav.Link>
-                  </Nav.Item>
-                </>
-              }
-              {
-                !props.home &&
-                <b>
-                  <NavDropdown title={props.type} id="collasible-nav-dropdown">
-                  {
-                      types.map((type)=>(
-                          <>
-                              {type!==props.type && 
-                                  <NavDropdown.Item className={styles.navLink}>
-                                    <Link to={`/${type}`} style={{textDecoration:"none", color:"red"}}>
-                                      {type}
-                                    </Link>
-                                  </NavDropdown.Item>
-                              }
-                              {type===props.type && 
-                                  <NavDropdown.Item className={styles.navLink} href="" active>
-                                      {type}
-                                  </NavDropdown.Item>
-                              }
-                          </>
-                      ))
-                  }
-                  </NavDropdown>
-                </b>
-              }
-              {props.type &&
-                <b>
-                  <NavDropdown title={props.filter || "FILTER BY"} id="collasible-nav-dropdown">
-                    {props.type==="web_series" && tvFilters.map((filter)=>(
-                        <>
-                          {filter!==props.filter && 
-                              <NavDropdown.Item className={styles.navLink}>
-                                <Link to={`/web_series/${filter}`} style={{textDecoration:"none", color:"red"}}>
-                                  {filter}
-                                </Link>
-                              </NavDropdown.Item>
-                          }
-                          {filter===props.filter && 
-                              <NavDropdown.Item className={styles.navLink} href="" active>
-                                  {filter}
-                              </NavDropdown.Item>
-                          }
-                        </>
-                        ))
-                    }
-
-                    {props.type==="movies" && movieFilters.map((filter)=>(
-                        <>
-                          {filter!==props.filter && 
-                              <NavDropdown.Item className={styles.navLink}>
-                                <Link to={`/movies/${filter}`} style={{textDecoration:"none", color:"red"}}>
-                                  {filter}
-                                </Link>
-                              </NavDropdown.Item>
-                          }
-                          {filter===props.filter && 
-                              <NavDropdown.Item className={styles.navLink} href="" active>
-                                  {filter}
-                              </NavDropdown.Item>
-                          }
-                        </>
-                        ))
-                    }
-                  </NavDropdown>                
-                </b>
-              }
+                  <b>
+                    <NavDropdown title="MOVIES" id="collasible-nav-dropdown">
+                      <NavDropdown.Item className={styles.navLink}>
+                        <Link to="/movies" style={{textDecoration:"none", color:"red"}}>
+                          ALL
+                        </Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item className={styles.navLink}>
+                        <Link to="/movies/now_playing" style={{textDecoration:"none", color:"red"}}>
+                          NOW PLAYING
+                        </Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item className={styles.navLink}>
+                        <Link to="/movies/upcoming" style={{textDecoration:"none", color:"red"}}>
+                          UPCOMING
+                        </Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item className={styles.navLink}>
+                        <Link to="/movies/trending" style={{textDecoration:"none", color:"red"}}>
+                          TRENDING
+                        </Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item className={styles.navLink}>
+                        <Link to="/movies/popular" style={{textDecoration:"none", color:"red"}}>
+                          POPULAR
+                        </Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item className={styles.navLink}>
+                        <Link to="/movies/top_rated" style={{textDecoration:"none", color:"red"}}>
+                          TOP RATED
+                        </Link>
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </b>
+                  <b>
+                    <NavDropdown title="TV/WEB SERIES" id="collasible-nav-dropdown">
+                      <NavDropdown.Item className={styles.navLink}>
+                        <Link to="/web_series" style={{textDecoration:"none", color:"red"}}>
+                          ALL
+                        </Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item className={styles.navLink}>
+                        <Link to="/web_series/trending" style={{textDecoration:"none", color:"red"}}>
+                          TRENDING
+                        </Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item className={styles.navLink}>
+                        <Link to="/web_series/popular" style={{textDecoration:"none", color:"red"}}>
+                          POPULAR
+                        </Link>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item className={styles.navLink}>
+                        <Link to="/web_series/top_rated" style={{textDecoration:"none", color:"red"}}>
+                          TOP RATED
+                        </Link>
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </b>
+                
             </div>
           </Nav>
           
