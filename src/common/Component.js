@@ -6,19 +6,25 @@ import Button from 'react-bootstrap/Button';
 import Header from "./Header";
 import List from "./List";
 
+import { useDispatch,useSelector } from "react-redux";
+import {typeActions} from '../store/Type';
+import {filterActions} from '../store/Filter';
+
 const TvSeriesComponent = (props) => {
+
+  const dispatch=useDispatch();
+
+  const Type=useSelector((state)=>state.type.type);
+  const Filter=useSelector((state)=>state.filter.filter);
+
   const [items, setItems] = useState([]);
   const [count,setCount]=useState(1);
   const [isLoading, setLoading]=useState(true);
   const [total_pages, setTotalPages]=useState();
   const [total_results, setTotalResults]=useState();
 
-  var type;
-  if(props.type==="movies"){
-    type="movie";
-  }else{
-    type="tv";
-  }
+  const type=props.type==="movies"?"movie":"tv";
+  
   const filter = props.filter==="trending"?"trending/"+type+"/day":type+"/"+props.filter;
 
   const nextPageHandler=()=>{
@@ -52,8 +58,14 @@ const TvSeriesComponent = (props) => {
 
   useEffect(() => {
     fetchTvSeries();
+
+    if(Type!==type || Filter!==filter){
+        setCount(1);
+        dispatch(typeActions.setType(type));
+        dispatch(filterActions.setFilter(filter));
+    }
     //eslint-disable-next-line
-  }, [filter,count]);
+  }, [type,filter,count]);
 
 
   return (

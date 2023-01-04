@@ -16,14 +16,3 @@
     text-decoration: none;
     text-align: center;
 }
-
-.search{
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-}
-
-.search:hover{
-    color: blue;
-}
