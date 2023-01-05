@@ -121,7 +121,7 @@ const MovieDetail = () => {
 
                                     {videos.length>0 &&
                                         <DropdownButton
-                                            variant="outline-danger"
+                                            variant="danger"
                                             title="VIDEOS"
                                             id="input-group-dropdown-1"
                                         >
