@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Footer from "./common/Footer";
 import Component from "./common/Component";
@@ -21,7 +21,7 @@ function App() {
       
       <Routes>
         
-        <Route path="/" element={
+        <Route path="/home" element={
           <>
             <Movies />
             <TvSeries />
@@ -45,7 +45,7 @@ function App() {
         <Route path="/movies/:id" element={<MovieDetail />} />
         
         <Route path="/search/:query" element={<SearchQuery />} />
-        <Route path="*" element={<h1>Error, this page does not exist !</h1>} />
+        <Route path="*" element={<Navigate replace to="/home" />} />
       </Routes>
       <Footer />
     </Container>

@@ -176,7 +176,7 @@ const SearchQuery = () => {
                                 <h3><Badge pill bg="dark" style={{textTransform: "uppercase"}}>PAGE {total_resultsTvSeries===0?0:countTvSeries} / {total_pagesTvSeries}</Badge></h3>
                                 <h3><Badge pill bg="dark" style={{textTransform: "uppercase"}}>TOTAL RESULTS: {total_resultsTvSeries}</Badge></h3>
                             </div>
-                            <List items={tvSeries} type="web series"/>
+                            <List items={tvSeries} type="web_series"/>
                             <div style={{display:"flex",justifyContent: "center"}}>
                                 {countTvSeries>1 && <Button onClick={previousPageTvSeriesHandler} variant="outline-warning" style={{margin:"20px"}} size="lg"><i className="fas fa-angle-double-left" />&nbsp;Previous</Button>}
                                 {countTvSeries===1 && <Button variant="outline-warning" style={{margin:"20px"}} size="lg" disabled><i className="fas fa-times-circle"/>&nbsp;Previous</Button>}
