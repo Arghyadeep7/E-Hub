@@ -24,7 +24,7 @@ function App() {
         <Route path="/home" element={
           <>
             <Movies />
-            <TvSeries />
+            <TvSeries path="home"/>
           </>
         } />
 

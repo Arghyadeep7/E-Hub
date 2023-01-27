@@ -40,7 +40,7 @@ const TvSeries = (props) => {
 
   return (
     <>
-        <Header />
+        {!props.path && <Header />}
         <Badge bg="secondary" style={{margin:"10px auto", width:"100%", textAlign: "center"}}><h3>TV/WEB SERIES</h3></Badge>
         <h3 style={{display: 'flex', justifyContent: 'space-between'}}>
           <Badge bg="primary">TRENDING</Badge>
