@@ -139,12 +139,12 @@ const SearchQuery = () => {
                             <Col>
                                 {selected &&
                                     <ListGroup.Item action href="#web_series" onClick={clickhandler}>
-                                        <h4>WEB SERIES</h4>
+                                        <h4>SERIES</h4>
                                     </ListGroup.Item>
                                 }
                                 {!selected &&
                                     <ListGroup.Item action disabled href="#web_series" onClick={clickhandler}>
-                                        <h4>TV/WEB SERIES</h4>
+                                        <h4>SERIES</h4>
                                     </ListGroup.Item>
                                 }
                             </Col>
