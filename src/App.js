@@ -12,7 +12,7 @@ import EpisodeComponent from "./tvSeries/EpisodeComponent";
 import Movies from "./movies/Movies";
 import MovieDetail from "./movies/MovieDetail";
 
-import Container from "react-bootstrap/Container";
+import Container from "react-bootstrap/Containe";
 
 function App() {
 
